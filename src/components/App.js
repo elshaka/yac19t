@@ -5,6 +5,7 @@ import {
   Route,
 } from 'react-router-dom';
 import List from './List';
+import Item from './Item';
 
 
 const App = () => (
@@ -12,6 +13,7 @@ const App = () => (
     <div className="App">
       <Switch>
         <Route exact path="/" component={List} />
+        <Route exact path="/:id" component={Item} />
       </Switch>
     </div>
   </Router>
