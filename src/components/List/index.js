@@ -1,12 +1,12 @@
 import React from 'react';
 
-const App = () => {
+const List = () => {
   return (
-    <div>
+    <div className="List">
       <h1>YAC19T</h1>
       <p>Are you wearing a mask?</p>
     </div>
   );
-};
+}
 
-export default App;
+export default List;
