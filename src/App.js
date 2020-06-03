@@ -7,8 +7,12 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        <p>I turned myself into a React component Morty</p>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          I&apos;m
+          {' '}
+          <code>src/Components/Rick.jsx</code>
+          !
         </p>
         <a
           className="App-link"
