@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getItem } from '../../actions';
 
 const Item = ({
-  item, loading, error, getItem, match: { params: { id } }
+  item, loading, error, getItem, match: { params: { id } },
 }) => {
   useEffect(() => {
     getItem(id);
@@ -36,6 +37,31 @@ const Item = ({
       ) }
     </div>
   );
+};
+
+Item.propTypes = {
+  loading: PropTypes.bool.isRequired,
+  error: PropTypes.bool.isRequired,
+  item: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    confirmed: PropTypes.number.isRequired,
+    deaths: PropTypes.number.isRequired,
+    recovered: PropTypes.number.isRequired,
+    active: PropTypes.number.isRequired,
+    stats: PropTypes.shape({
+      confirmed: PropTypes.number.isRequired,
+      deaths: PropTypes.number.isRequired,
+      recovered: PropTypes.number.isRequired,
+      active: PropTypes.number.isRequired,
+      datetime: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
+  getItem: PropTypes.func.isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
 };
 
 const mapStateToProps = state => state.item;

@@ -27,7 +27,7 @@ export const getList = () => dispatch => {
     });
 };
 
-export const getItem = (id) => dispatch => {
+export const getItem = id => dispatch => {
   dispatch(getItemStarted());
   COVID19.getItem(id)
     .then(item => {
