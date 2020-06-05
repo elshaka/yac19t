@@ -13,6 +13,7 @@ const Item = ({
   return (
     <div className="Item">
       { loading && <p>Loading...</p> }
+      { !loading && !item && <p>There is no data available for the selected country</p> }
       { error && <p>There was an error, please try again later.</p> }
       { !error && item && (
         <div className="country">
@@ -55,13 +56,17 @@ Item.propTypes = {
       active: PropTypes.number.isRequired,
       datetime: PropTypes.string.isRequired,
     }).isRequired,
-  }).isRequired,
+  }),
   getItem: PropTypes.func.isRequired,
   match: PropTypes.shape({
     params: PropTypes.shape({
       id: PropTypes.string.isRequired,
     }).isRequired,
   }).isRequired,
+};
+
+Item.defaultProps = {
+  item: null,
 };
 
 const mapStateToProps = state => state.item;

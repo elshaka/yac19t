@@ -19,15 +19,12 @@ const itemReducer = (state = defaultState, { type, payload }) => {
       };
     case GET_ITEM_SUCCESS:
       return {
-        ...state,
-        loading: false,
+        ...defaultState,
         item: payload,
-        error: false,
       };
     case GET_ITEM_FAILURE:
       return {
-        ...state,
-        loading: false,
+        ...defaultState,
         error: true,
       };
     default:

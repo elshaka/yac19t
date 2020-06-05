@@ -4,6 +4,10 @@ export const formatList = data => data.map(country => ({
 }));
 
 export const formatItem = data => {
+  if (data.length === 0) {
+    return null;
+  }
+
   const last = data[data.length - 1];
   const stats = data.map(item => ({
     confirmed: item.Confirmed,
