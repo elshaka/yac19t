@@ -4,6 +4,7 @@ import {
   Switch,
   Route,
 } from 'react-router-dom';
+import './App.scss';
 import List from './List';
 import Item from './Item';
 
