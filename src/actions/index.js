@@ -3,6 +3,7 @@ import COVID19 from '../services/covid19';
 export const GET_LIST_STARTED = 'GET_LIST_STARTED';
 export const GET_LIST_SUCCESS = 'GET_LIST_SUCCESS';
 export const GET_LIST_FAILURE = 'GET_LIST_FAILURE';
+export const SET_LIST_FILTER = 'SET_LIST_FILTER';
 
 export const GET_ITEM_STARTED = 'GET_ITEM_STARTED';
 export const GET_ITEM_SUCCESS = 'GET_ITEM_SUCCESS';
@@ -26,6 +27,8 @@ export const getList = () => dispatch => {
       dispatch(getListFailure());
     });
 };
+
+export const setListFilter = filter => ({ type: SET_LIST_FILTER, payload: filter });
 
 export const getItem = id => dispatch => {
   dispatch(getItemStarted());
