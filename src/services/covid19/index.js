@@ -10,7 +10,7 @@ const COVID19 = (() => {
     const cachedList = Cache.get('list');
     if (cachedList) {
       return Promise.resolve(formatList(cachedList));
-    };
+    }
 
     const requestUrl = `${BASE_URL}/countries`;
     return axios.get(requestUrl, DEFAULT_REQUEST_OPTIONS)
