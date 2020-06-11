@@ -1,0 +1,20 @@
+Home (list) view:
+  Grafica de casos totales mundial
+  Casos totales
+  Muertes totales
+  Total activos
+  Total recuperados
+
+  Lista por paises
+    Casos totales
+    Muertes totales
+    Total activos
+    Total recuperados
+
+Country (item) view
+  Grafica de casos totales
+  Grafica de casos nuevos
+  Casos totales
+  Muertes totales
+  Total activos
+  Total recuperados

@@ -12,6 +12,9 @@ YAC19T (Yet Another COVID19 Tracker) is a simple app that shows COVID19 stats by
 
 - create-react-app
 - Redux
+- React Router
+- Material UI
+- react-vis (for the graph)
 - PropTypes
 
 ## Getting Started
