@@ -5,8 +5,8 @@ import Cache from '../../utils/cache';
 const BASE_URL = 'https://api.covid19api.com';
 const DEFAULT_REQUEST_OPTIONS = { mode: 'cors' };
 
-const COVID19 = (() => {
-  const getList = () => {
+const COVID19 = {
+  getList: () => {
     const cachedList = Cache.get('list');
     if (cachedList) {
       return Promise.resolve(formatList(cachedList));
@@ -19,15 +19,12 @@ const COVID19 = (() => {
         return response.data;
       })
       .then(list => formatList(list));
-  };
-
-  const getItem = id => {
+  },
+  getItem: id => {
     const requestUrl = `${BASE_URL}/country/${id}`;
     return axios.get(requestUrl, DEFAULT_REQUEST_OPTIONS)
-      .then(repsonse => formatItem(repsonse.data));
-  };
-
-  return { getList, getItem };
-})();
+      .then(response => formatItem(response.data));
+  },
+};
 
 export default COVID19;
