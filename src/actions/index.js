@@ -22,6 +22,7 @@ export const getList = () => dispatch => {
   COVID19.getList()
     .then(list => {
       dispatch(getListSuccess(list));
+      debugger;
     })
     .catch(() => {
       dispatch(getListFailure());
