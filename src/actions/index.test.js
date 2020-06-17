@@ -18,10 +18,17 @@ const initialState = {
 };
 const store = mockStore(initialState);
 
+async function wait(ms = 0) {
+  return new Promise(resolve => {
+    setTimeout(resolve, ms);
+  });
+}
+
 describe('#getList', () => {
-  beforeEach(() => {
+  beforeEach(async () => {
     store.clearActions();
     store.dispatch(actions.getList());
+    await wait();
   });
 
   describe('when the request is successful', () => {
