@@ -15,21 +15,25 @@ const List = ({
   const query = filter.trim().toLowerCase();
   const filtered = list.filter(p => p.name.toLowerCase().includes(query));
 
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>There was an error, please try again later.</p>;
+  }
+
   return (
     <div className="List">
       <h1>YAC19T</h1>
-      { loading && <p>Loading...</p> }
-      { error && <p>There was an error, please try again later.</p>}
-      { !loading && !error && list && (
-        <div className="countries">
-          <Filter />
-          { filtered.map(({ id, name }) => (
-            <div className="country" key={id}>
-              <Link to={`/${id}`}>{name}</Link>
-            </div>
-          )) }
-        </div>
-      )}
+      <div className="countries">
+        <Filter />
+        { filtered.map(({ id, name }) => (
+          <div className="country" key={id}>
+            <Link to={`/${id}`}>{name}</Link>
+          </div>
+        )) }
+      </div>
     </div>
   );
 };

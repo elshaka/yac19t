@@ -13,48 +13,56 @@ const Item = ({
     getItem(id);
   }, [getItem, id]);
 
+
+  if (loading) {
+    return <p>Loading...</p>;
+  };
+
+  if (error) {
+    return <p>There was an error, please try again later.</p>;
+  };
+
+  if (!item) {
+    return <p>There is no data available for the selected country</p>;
+  }
+
   return (
     <div className="Item">
-      { loading && <p>Loading...</p> }
-      { !loading && !item && <p>There is no data available for the selected country</p> }
-      { error && <p>There was an error, please try again later.</p> }
-      { !error && item && (
-        <div className="country">
-          <h2>{item.name}</h2>
-          <p>
-            Confirmed:
-            {item.confirmed}
-          </p>
-          <p>
-            Deaths:
-            {item.deaths}
-          </p>
-          <p>
-            Recovered:
-            {item.recovered}
-          </p>
-          <p>
-            Active:
-            {item.active}
-          </p>
-          <XYPlot
-            width={600}
-            height={300}
-          >
-            <VerticalGridLines />
-            <HorizontalGridLines />
-            <LineSeries
-              data={
-                item.stats.map((point, index) => ({
-                  x: index, y: point.confirmed,
-                }))
-              }
-            />
-            <XAxis />
-            <YAxis />
-          </XYPlot>
-        </div>
-      ) }
+      <div className="country">
+        <h2>{item.name}</h2>
+        <p>
+          Confirmed:
+          {item.confirmed}
+        </p>
+        <p>
+          Deaths:
+          {item.deaths}
+        </p>
+        <p>
+          Recovered:
+          {item.recovered}
+        </p>
+        <p>
+          Active:
+          {item.active}
+        </p>
+        <XYPlot
+          width={600}
+          height={300}
+        >
+          <VerticalGridLines />
+          <HorizontalGridLines />
+          <LineSeries
+            data={
+              item.stats.map((point, index) => ({
+                x: index, y: point.confirmed,
+              }))
+            }
+          />
+          <XAxis />
+          <YAxis />
+        </XYPlot>
+      </div>
     </div>
   );
 };
